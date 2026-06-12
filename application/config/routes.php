@@ -1,58 +1,56 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
-| corresponding to the URL.
-|
-| Please see the user guide for complete details:
-|
-|	https://codeigniter.com/userguide3/general/routing.html
-|
-| -------------------------------------------------------------------------
-| RESERVED ROUTES
-| -------------------------------------------------------------------------
-|
-| There are three reserved routes:
-|
-|	$route['default_controller'] = 'welcome';
-|
-| This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
-| would be loaded.
-|
-|	$route['404_override'] = 'errors/page_missing';
-|
-| This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
-|
-|	$route['translate_uri_dashes'] = FALSE;
-|
-| This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
-| class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
-|
-| Examples:	my-controller/index	-> my_controller/index
-|		my-controller/my-method	-> my_controller/my_method
-*/
-$route['default_controller'] = 'auth';
+//---> Home
+$route['default_controller'] = 'home';
+
+//---> login admin
+$route['login'] = 'auth';
+$route['login/proses'] = 'auth/login';
+$route['logout'] = 'auth/logout';
+$route['dashboard'] = 'dashboard';
+
+//---> registrasi dan login pasien
+$route['pasien/register'] = 'pasien/register';
+$route['pasien/simpan-register'] = 'pasien/simpan_register';
+$route['pasien/login'] = 'pasien/login';
+$route['pasien/login/proses'] = 'pasien/proses_login';
+$route['pasien/dashboard'] = 'pasien/dashboard';
+$route['pasien/logout'] = 'pasien/logout';
+
+//---> pasien mendaftar dan berobat
+$route['pasien/daftar-berobat'] = 'pasien/daftar_berobat';
+$route['pasien/simpan-pendaftaran'] = 'pasien/simpan_pendaftaran';
+$route['pasien/status-pendaftaran'] = 'pasien/status_pendaftaran';
+
+//---> admin kelola pendaftaran
+$route['admin/pendaftaran'] = 'admin_pendaftaran';
+$route['admin/pendaftaran/setujui/(:num)'] = 'admin_pendaftaran/setujui/$1';
+$route['admin/pendaftaran/tolak/(:num)'] = 'admin_pendaftaran/tolak/$1';
+
+//---> admin kelola pasien
+$route['admin/pasien'] = 'admin_pasien';
+$route['admin/pasien/tambah'] = 'admin_pasien/tambah';
+$route['admin/pasien/simpan'] = 'admin_pasien/simpan';
+$route['admin/pasien/edit/(:num)'] = 'admin_pasien/edit/$1';
+$route['admin/pasien/update/(:num)'] = 'admin_pasien/update/$1';
+$route['admin/pasien/hapus/(:num)'] = 'admin_pasien/hapus/$1';
+
+//--->admin kelola dokter
+$route['admin/dokter'] = 'admin_dokter';
+$route['admin/dokter/tambah'] = 'admin_dokter/tambah';
+$route['admin/dokter/simpan'] = 'admin_dokter/simpan';
+$route['admin/dokter/edit/(:num)'] = 'admin_dokter/edit/$1';
+$route['admin/dokter/update/(:num)'] = 'admin_dokter/update/$1';
+$route['admin/dokter/hapus/(:num)'] = 'admin_dokter/hapus/$1';
+
+//---> admin jadwal pasien
+$route['admin/jadwal'] = 'admin_jadwal';
+
+//---> admin laporan
+$route['admin/laporan'] = 'admin_laporan';
+$route['admin/laporan/csv'] = 'admin_laporan/export_csv';
+$route['admin/laporan/pdf'] = 'admin_laporan/export_pdf';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-$route['login']='auth';
-$route['login/proses']='auth/login';
-$route['logout']='auth/logout';
