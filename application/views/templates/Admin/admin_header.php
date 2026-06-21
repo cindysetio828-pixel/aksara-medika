@@ -568,75 +568,146 @@
             }
 
             .filter-card {
-    background: rgba(255,253,251,.98);
-    border-radius: 24px;
-    padding: 24px;
-    box-shadow: 0 10px 28px rgba(37,75,90,.08);
-    border: 1px solid rgba(139,94,60,.10);
-}
+                background: rgba(255,253,251,.98);
+                border-radius: 24px;
+                padding: 24px;
+                box-shadow: 0 10px 28px rgba(37,75,90,.08);
+                border: 1px solid rgba(139,94,60,.10);
+            }
 
-.filter-card .form-label {
-    color: var(--brown);
-    font-weight: 800;
-}
+            .filter-card .form-label {
+                color: var(--brown);
+                font-weight: 800;
+            }
 
-.filter-card .form-control {
-    border-radius: 14px;
-    padding: 12px;
-}
+            .filter-card .form-control {
+                border-radius: 14px;
+                padding: 12px;
+            }
 
-.btn-filter {
-    background: linear-gradient(135deg, var(--tosca), var(--blue));
-    color: white;
-    border: none;
-    border-radius: 14px;
-    padding: 12px 18px;
-    font-weight: 800;
-    text-decoration: none;
-}
+            .btn-filter {
+                background: linear-gradient(135deg, var(--tosca), var(--blue));
+                color: white;
+                border: none;
+                border-radius: 14px;
+                padding: 12px 18px;
+                font-weight: 800;
+                text-decoration: none;
+            }
 
-.btn-filter:hover {
-    color: white;
-    opacity: .94;
-}
+            .btn-filter:hover {
+                color: white;
+                opacity: .94;
+            }
 
-.btn-reset {
-    background: #FFF8F0;
-    color: var(--brown);
-    border: 1px solid rgba(139,94,60,.20);
-    border-radius: 14px;
-    padding: 12px 18px;
-    font-weight: 800;
-    text-decoration: none;
-}
+            .btn-reset {
+                background: #FFF8F0;
+                color: var(--brown);
+                border: 1px solid rgba(139,94,60,.20);
+                border-radius: 14px;
+                padding: 12px 18px;
+                font-weight: 800;
+                text-decoration: none;
+            }
 
-.btn-reset:hover {
-    background: var(--brown);
-    color: white;
-}
+            .btn-reset:hover {
+                background: var(--brown);
+                color: white;
+            }
 
-.badge-spesialis {
-    background: #E8F8F3;
-    color: #237966;
-    border: 1px solid rgba(35,121,102,.16);
-    padding: 8px 12px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 800;
-    display: inline-block;
-}
+            .badge-spesialis {
+                background: #E8F8F3;
+                color: #237966;
+                border: 1px solid rgba(35,121,102,.16);
+                padding: 8px 12px;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: 800;
+                display: inline-block;
+            }
 
-.badge-username {
-    background: #EEF8FF;
-    color: var(--blue);
-    border: 1px solid rgba(74,144,226,.18);
-    padding: 8px 12px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 800;
-    display: inline-block;
-}
+            .badge-username {
+                background: #EEF8FF;
+                color: var(--blue);
+                border: 1px solid rgba(74,144,226,.18);
+                padding: 8px 12px;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: 800;
+                display: inline-block;
+            }
+            /* =========================================================
+            DASHBOARD PANEL ADMIN
+            ========================================================= */
+            .dashboard-panel {
+                background: rgba(255, 253, 251, 0.98);
+                border-radius: 24px;
+                padding: 24px;
+                box-shadow: 0 12px 30px rgba(37, 75, 90, 0.10);
+                border: 1px solid rgba(139, 94, 60, 0.10);
+                height: 100%;
+            }
+
+            .panel-head {
+                margin-bottom: 18px;
+            }
+
+            .panel-head h4 {
+                margin: 0;
+                font-weight: 900;
+                color: var(--dark);
+                font-size: 24px;
+            }
+
+            .panel-head p {
+                margin: 6px 0 0;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            /* =========================================================
+            TABEL DASHBOARD
+            ========================================================= */
+            .dashboard-table thead th {
+                background: linear-gradient(135deg, var(--tosca), var(--blue));
+                color: white;
+                border: none;
+                font-weight: 800;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .dashboard-table tbody td {
+                vertical-align: middle;
+                padding: 14px 12px;
+            }
+
+            /* =========================================================
+            BADGE STATUS
+            ========================================================= */
+            .badge-status {
+                padding: 8px 14px;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: 800;
+                display: inline-block;
+                white-space: nowrap;
+            }
+
+            .status-proses {
+                background: #FFF3CD;
+                color: #856404;
+            }
+
+            .status-disetujui {
+                background: #DDF4EE;
+                color: #237966;
+            }
+
+            .status-ditolak {
+                background: #FFE1DE;
+                color: #9B3E2F;
+            }
 
     </style>
 </head>
-<body>

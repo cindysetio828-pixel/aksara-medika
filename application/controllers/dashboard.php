@@ -24,12 +24,13 @@ class Dashboard extends CI_Controller
         $data['subtitle'] = 'Selamat datang di sistem pendaftaran pasien Aksara Medika.';
         $data['active'] = 'dashboard';
 
-        $data['total_pasien'] = $this->Dashboard_model->total_pasien();
-        $data['total_dokter'] = $this->Dashboard_model->total_dokter();
-        $data['total_pendaftaran'] = $this->Dashboard_model->total_pendaftaran();
-        $data['total_proses'] = $this->Dashboard_model->total_proses();
-        $data['total_disetujui'] = $this->Dashboard_model->total_disetujui();
-        $data['total_ditolak'] = $this->Dashboard_model->total_ditolak();
+        $data['total_pasien']       = $this->Dashboard_model->total_pasien();
+        $data['total_dokter']       = $this->Dashboard_model->total_dokter();
+        $data['total_pendaftaran']  = $this->Dashboard_model->total_pendaftaran();
+        $data['total_proses']       = $this->Dashboard_model->total_proses();
+        $data['total_disetujui']    = $this->Dashboard_model->total_disetujui();
+        $data['total_ditolak']      = $this->Dashboard_model->total_ditolak();
+        $data['pendaftaran_terbaru'] = $this->Dashboard_model->get_latest_pendaftaran(5);
 
         $this->load->view('templates/admin/admin_header', $data);
         $this->load->view('templates/admin/admin_sidebar', $data);

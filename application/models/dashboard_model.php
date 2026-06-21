@@ -20,19 +20,36 @@ class Dashboard_model extends CI_Model
 
     public function total_proses()
     {
-        $this->db->where('status', 'Dalam Proses');
-        return $this->db->count_all_results('pendaftaran');
+        return $this->db->where('status', 'Dalam Proses')
+                        ->count_all_results('pendaftaran');
     }
 
     public function total_disetujui()
     {
-        $this->db->where('status', 'Disetujui');
-        return $this->db->count_all_results('pendaftaran');
+        return $this->db->where('status', 'Disetujui')
+                        ->count_all_results('pendaftaran');
     }
 
     public function total_ditolak()
     {
-        $this->db->where('status', 'Ditolak');
-        return $this->db->count_all_results('pendaftaran');
+        return $this->db->where('status', 'Ditolak')
+                        ->count_all_results('pendaftaran');
+    }
+
+    public function get_latest_pendaftaran($limit = 5)
+    {
+        $this->db->select('
+            pendaftaran.*,
+            pasien.nama_pasien,
+            dokter.nama_dokter,
+            dokter.spesialis
+        ');
+        $this->db->from('pendaftaran');
+        $this->db->join('pasien', 'pasien.id_pasien = pendaftaran.id_pasien');
+        $this->db->join('dokter', 'dokter.id_dokter = pendaftaran.id_dokter');
+        $this->db->order_by('pendaftaran.tanggal_daftar', 'DESC');
+        $this->db->limit($limit);
+
+        return $this->db->get()->result();
     }
 }

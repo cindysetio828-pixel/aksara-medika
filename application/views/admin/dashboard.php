@@ -68,7 +68,8 @@
 
 </div>
 
-<div class="welcome-box">
+
+<div class="welcome-box mt-4">
     <h4>Sistem Pendaftaran Pasien Online</h4>
     <p>
         Aksara Medika membantu admin rumah sakit memantau pendaftaran pasien,
@@ -76,7 +77,70 @@
     </p>
 </div>
 
-<h5 class="section-title">Akses Cepat</h5>
+
+<div class="row g-4 mt-2">
+
+    <!-- TABEL PENDAFTARAN TERBARU -->
+    <div class="col-lg-8">
+        <div class="dashboard-panel">
+            <div class="panel-head">
+                <h4>Pendaftaran Terbaru</h4>
+                <p>5 data pendaftaran pasien terbaru.</p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle dashboard-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Pasien</th>
+                            <th>Dokter</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (empty($pendaftaran_terbaru)) : ?>
+                            <tr>
+                                <td colspan="3" class="text-center text-muted">Belum ada data pendaftaran.</td>
+                            </tr>
+                        <?php else : ?>
+                            <?php foreach ($pendaftaran_terbaru as $p) : ?>
+                                <tr>
+                                    <td><?= $p->nama_pasien; ?></td>
+                                    <td><?= $p->nama_dokter; ?></td>
+                                    <td>
+                                        <?php if ($p->status == 'Dalam Proses') : ?>
+                                            <span class="badge-status status-proses">Dalam Proses</span>
+                                        <?php elseif ($p->status == 'Disetujui') : ?>
+                                            <span class="badge-status status-disetujui">Disetujui</span>
+                                        <?php else : ?>
+                                            <span class="badge-status status-ditolak">Ditolak</span>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHART STATUS -->
+    <div class="col-lg-4">
+        <div class="dashboard-panel">
+            <div class="panel-head">
+                <h4>Statistik Status</h4>
+                <p>Perbandingan status pendaftaran pasien.</p>
+            </div>
+
+            <canvas id="statusChart" height="240"></canvas>
+        </div>
+    </div>
+
+</div>
+
+
+<h5 class="section-title mt-4">Akses Cepat</h5>
 
 <div class="row g-4">
 
@@ -111,3 +175,56 @@
     </div>
 
 </div>
+
+
+<!-- CHART JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('statusChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Dalam Proses', 'Disetujui', 'Ditolak'],
+            datasets: [{
+                label: 'Jumlah Pendaftaran',
+                data: [
+                    <?= $total_proses; ?>,
+                    <?= $total_disetujui; ?>,
+                    <?= $total_ditolak; ?>
+                ],
+                backgroundColor: [
+                    '#F2C14E',
+                    '#2FAE9B',
+                    '#D96C75'
+                ],
+                borderRadius: 12,
+                borderSkipped: false
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    },
+                    grid: {
+                        color: 'rgba(0,0,0,0.06)'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+</script>

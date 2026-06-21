@@ -18,7 +18,7 @@
                 dan memantau status pendaftaran langsung dari dashboard ini.
             </p>
 
-            <div class="hero-buttons">
+            <div class="hero-actions">
                 <a href="<?= base_url('pasien/daftar-berobat'); ?>" class="btn-main">
                     <i class="fa-solid fa-notes-medical me-1"></i>
                     Daftar Berobat

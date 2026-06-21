@@ -93,6 +93,16 @@
 
                     <li>
                         <i class="fa-solid fa-check"></i>
+                        <span>Kandungan</span>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        <span>THT</span>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
                         <span>Konsultasi Dokter</span>
                     </li>
                 </ul>

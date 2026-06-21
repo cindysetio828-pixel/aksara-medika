@@ -192,10 +192,61 @@
             margin-bottom: 22px;
         }
 
-        .hero-buttons {
+        /* =========================================================
+        HERO BUTTONS DASHBOARD PASIEN
+        Dipakai di: pasien/dashboard.php
+        ========================================================= */
+        .hero-actions {
             display: flex;
+            gap: 14px;
             flex-wrap: wrap;
-            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .hero-actions a {
+            text-decoration: none !important;
+        }
+
+        .btn-main,
+        .btn-soft-brown {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 24px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 15px;
+            text-decoration: none !important;
+            transition: all 0.25s ease;
+            border: none;
+        }
+
+        /* tombol utama */
+        .btn-main {
+            background: linear-gradient(135deg, var(--tosca), var(--blue));
+            color: #fff !important;
+            box-shadow: 0 12px 24px rgba(47, 174, 155, 0.22);
+        }
+
+        .btn-main:hover {
+            color: #fff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 16px 28px rgba(47, 174, 155, 0.28);
+        }
+
+        /* tombol secondary */
+        .btn-soft-brown {
+            background: #FFF4EA;
+            color: var(--brown-dark) !important;
+            border: 1px solid rgba(139, 94, 60, 0.18);
+            box-shadow: 0 10px 20px rgba(139, 94, 60, 0.10);
+        }
+
+        .btn-soft-brown:hover {
+            color: var(--brown-dark) !important;
+            background: #FBE8D8;
+            transform: translateY(-2px);
         }
 
         .hero-image-card {
